@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,4 +20,10 @@ Route::get('/hello/{name}/{age?}', function ($name, $age = 20) {
 
 Route::get('/blog', function () {
     return view('blog');
+});
+
+Route::get('/blogs', function() {
+    $blogs = Blog::all();
+
+    return view('blog.index', [ 'blogs' => $blogs ]);
 });

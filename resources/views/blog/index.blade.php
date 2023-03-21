@@ -23,7 +23,10 @@
             <td>{{ $blog->id }}</td>
             <td>{{ $blog->title }}</td>
             <td>{{ $blog->author }}</td>
-            <td><a href="/blogs/{{ $blog->id }}/edit">Ubah</a></td>
+            <td>
+                <a href="/blogs/{{ $blog->id }}/edit">Ubah</a>
+                <a href="/blogs/{{ $blog->id }}/delete">Hapus</a>
+            </td>
         </tr>
         @endforeach
     </table>

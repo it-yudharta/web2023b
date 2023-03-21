@@ -62,3 +62,10 @@ Route::post('/blogs/{blogId}/edit', function(Request $request, $blogId) {
 
     return redirect('/blogs');
 });
+
+Route::get('/blogs/{blogId}/delete', function($blogId) {
+    $blog = Blog::find($blogId);
+    $blog->delete();
+
+    return redirect('/blogs');
+});

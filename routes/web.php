@@ -44,3 +44,21 @@ Route::post('/blogs/create', function(Request $request) {
 
     return redirect('/blogs');
 });
+
+Route::get('/blogs/{blogId}/edit', function($blogId) {
+    $blog = Blog::find($blogId);
+
+    return view('blog.edit', ['blog' => $blog]);
+});
+
+Route::post('/blogs/{blogId}/edit', function(Request $request, $blogId) {
+    $blog = Blog::find($blogId);
+    $blog->title = $request->title;
+    $blog->author = $request->author;
+    $blog->time_to_read = $request->time_to_read;
+    $blog->for_kid = boolval($request->for_kid);
+    $blog->content = $request->content;
+    $blog->save();
+
+    return redirect('/blogs');
+});

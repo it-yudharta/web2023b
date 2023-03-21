@@ -7,7 +7,10 @@
     <title>Daftar Blog</title>
 </head>
 <body>
-    <h3>Daftar Judul</h3>
+    <h3>
+        Daftar Judul
+        <a href="/blogs/create">Buat Blog Baru</a>
+    </h3>
     <table>
         <tr>
             <th>ID</th>

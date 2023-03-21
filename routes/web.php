@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Blog;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,4 +27,20 @@ Route::get('/blogs', function() {
     $blogs = Blog::all();
 
     return view('blog.index', [ 'blogs' => $blogs ]);
+});
+
+Route::get('/blogs/create', function() {
+    return view('blog.create');
+});
+
+Route::post('/blogs/create', function(Request $request) {
+    $blog = new Blog;
+    $blog->title = $request->title;
+    $blog->author = $request->author;
+    $blog->time_to_read = $request->time_to_read;
+    $blog->for_kid = boolval($request->for_kid);
+    $blog->content = $request->content;
+    $blog->save();
+
+    return redirect('/blogs');
 });

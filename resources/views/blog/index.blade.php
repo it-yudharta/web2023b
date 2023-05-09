@@ -10,6 +10,7 @@
     <h3>
         Daftar Judul
         <a href="/blogs/create">Buat Blog Baru</a>
+        <a href="/logout"> Keluar</a>
     </h3>
     <table>
         <tr>
